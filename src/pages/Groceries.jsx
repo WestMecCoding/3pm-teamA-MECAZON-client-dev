@@ -1,32 +1,54 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import styles from "../styles/Groceries.module.css";
 import GroceryList from "../components/GroceryList";
 import axios from "axios";
 
-export default function Groceries() {
+export default function Groceries({searchValue}) {
   const [groceries, setGroceries] = useState([]);
-  useEffect(() => {
-    async function fetchGroceries() {
-      try {
-        const response = await axios.get("/dummy-data/groceries.json");
+  const resultsTextRef = useRef(null);
 
-        // set the state of the groceries to the response.data
-        setGroceries(response.data);
-      } catch (err) {
-        console.error("something went wrong fetching groceries", err);
-      }
+  async function fetchGroceries() {
+    try {
+      const response = await axios.get("/dummy-data/groceries.json");
+      console.log(response.data);
+      setGroceries(response.data);
+    } catch (err) {
+      console.error("something went wrong fetching groceries", err);
     }
+  }
+
+  useEffect(() => {
     fetchGroceries();
   }, []);
 
+  // useEffect(() => {
+  //   sessionStorage.setItem("groceries", JSON.stringify(groceries));
+  // }, [groceries]);
+
   useEffect(() => {
-    // console.log(groceries);
-    sessionStorage.setItem("groceries", JSON.stringify(groceries));
-    console.log(JSON.parse(sessionStorage.getItem("groceries")));
-  }, [groceries]);
+    async function renderSearchResults() {
+      if (searchValue) {
+        const response = await axios.get("/dummy-data/groceries.json");
+
+        const results = response.data.filter(item => {
+          return Object.values(item).some(value => value.toString().toLowerCase().includes(searchValue.toLowerCase()));
+        });
+
+        setGroceries(results);
+      } else if (searchValue === "") {
+        fetchGroceries();
+      }
+    }
+
+    renderSearchResults();
+  }, [searchValue])
+
   return (
-    <div>
-      <h1>Groceries</h1>
-      <GroceryList items={groceries} />
+    <div className={styles.background}>
+      <h1 ref={resultsTextRef} className={styles.text}>Results for "{searchValue}"</h1>
+        <div>
+          <GroceryList items={groceries} />
+        </div>
     </div>
   );
 }

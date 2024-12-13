@@ -1,32 +1,23 @@
-import { useState } from 'react';
+import styles from "../styles/SearchBar.module.css";
+import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
-function SearchBar({ data }) {
-  const [searchTerm, setSearchTerm] = useState('');
+export default function Search({setSearchValue}) {
+    const inputRef = useRef(null);
+    const navigate = useNavigate();
 
-  const handleSearch = (event) => {
-    setSearchTerm(event.target.value);
-  };
+    function submitSearch(e) {
+        if (e.key === "Enter" || e.type === "click") {
+            setSearchValue(inputRef.current.value);
+            navigate("/groceries");
+        }
+    }
 
-  const filteredData = data.filter((item) =>
-    item.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+    return (
+        <div className={styles.searchWrapper}>
+            <input ref={inputRef} onKeyDown={submitSearch} className={styles.searchInput} type="text" placeholder="Search" />
 
-  return (
-    <div>
-      <input
-        type="text"
-        placeholder="Search..."
-        value={searchTerm}
-        onChange={handleSearch}
-        style={{ padding: '8px', width: '300px' }}
-      />
-      <ul>
-        {filteredData.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul>
-    </div>
-  );
+            <img onClick={submitSearch} className={styles.searchIcon} src="/search_icon.svg" alt="search bar icon" />
+        </div>
+    );
 }
-
-export default SearchBar;
