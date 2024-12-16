@@ -30,14 +30,35 @@ export default function Home({setModalData}) {
     fetchGroceries();
   }, []);
 
-  return <>
-    <Carousel count={Math.ceil(self.innerWidth/200)<10?Math.ceil(self.innerWidth/200):10} setModalData={setModalData} data={groceries}/>
-    <div className={styles.banner}>
-      <img className={styles.image} src="https://media-public.canva.com/ADwTE/MAGHDfADwTE/1/s.png" alt="Black Man" draggable="false"/>
-      <div className={styles.column}>
-        <h1 className={styles.title}>Business solutions</h1>
-        <p className={styles.text}>Slide for Von dotn slime ur homye. Praesent dui leo, euismod et purus eu, iaculis luctus mauris. Cras a dolor eget nisi aliquet pulvinar eu ut elit. Suspendisse dictum magna quis metus pulvin.</p>
+  return (
+    <>
+      <Carousel
+        count={
+          Math.ceil(self.innerWidth / 200) < 10
+            ? Math.ceil(self.innerWidth / 200)
+            : 10
+        }
+        setModalData={setModalData}
+        data={groceries}
+      />
+      <div className={styles.banner}>
+        <img
+          className={styles.image}
+          src="./public/homeAd.PNG"
+          alt="Black Man"
+          draggable="false"
+        />
+        <div className={styles.column}>
+          <h1 className={styles.title}>Mecazon TitanX Pro 9000 Deluxe 2.0</h1>
+          <p className={styles.text}>
+            Experience cutting-edge technology with the Mecazon TitanX Pro 9000
+            Deluxe 2.0, designed with a Radeon RTX 4090 TI, 256gb DDR5 RAM, Intel Core I9 12th Generation CPU, 10000 watt power bank.
+            Crafted with precision and love, the TitanX
+            Pro delivers unmatched speed, performance, and reliability to power
+            your ambitions.
+          </p>
+        </div>
       </div>
-    </div>
-  </>;
+    </>
+  );
 }
