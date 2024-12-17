@@ -1,4 +1,16 @@
-.text {
-    margin: 0px;
-    padding: 2rem;
+.searchHeaders {
+    margin: 0;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    width: 100%;
+    /* outline: 1px solid black; */
+}
+
+.filtersWrapper {
+    display: flex;
+    align-items: center;
 }

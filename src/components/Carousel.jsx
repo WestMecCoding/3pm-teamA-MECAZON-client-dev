@@ -1,4 +1,5 @@
 import GroceryList from "./GroceryList";
+import addToCartFunc from "./AddToCartBtn";
 import styles from "../styles/Carousel.module.css";
 import { useEffect, useState } from "react";
 
@@ -29,7 +30,7 @@ export default function Carousel({ count, data, setModalData }) {
                 <div className={styles.subitem}>
                   <h1 className={styles.text}>{i.name}</h1>
                   <h1 className={styles.price}>${i.price}</h1>
-                  <button className={styles.addToCartBtn}>Add to Cart</button>
+                  <button onClick={() => {addToCartFunc(i)}} className={styles.addToCartBtn}>Add to Cart</button>
                 </div>
               </div>
             ))}

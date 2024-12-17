@@ -1,4 +1,5 @@
 import styles from "../styles/Modal.module.css";
+import addToCartFunc from "./AddToCartBtn";
 import Carousel from "./Carousel"
 import { useState, useEffect, useRef } from "react";
 import axios from "axios"
@@ -31,8 +32,6 @@ export default function Modal({ data, setModalData }) {
     }
 
     useEffect(() => {
-        console.log(data);
-
         setModalStatus(true);
 
         if (isModalOpen) {
@@ -55,7 +54,7 @@ export default function Modal({ data, setModalData }) {
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus eius, laboriosam aperiam quis quibusdam facilis maiores quam fugit perspiciatis modi totam tempore soluta non quidem corrupti aut exercitationem, sapiente nisi.</p>
 
               <div className={styles.buttonSection}>
-                <button className={styles.addCartButton}>Add to Cart</button>
+                <button onClick={() => {for(let i = 0; i < quantity; i++) {addToCartFunc(data)}}} className={styles.addCartButton}>Add to Cart</button>
                 <div className={styles.quantitySelector}>
                   <div>
                     <button onClick={() => {quantity > 0 ? setQuantity(prev => prev -= 1) : null}}>-</button>
@@ -82,7 +81,7 @@ export default function Modal({ data, setModalData }) {
 
             <div className={styles.suggestedProducts}>
               <h2>Suggested Products</h2>
-              <Carousel count={3} data={products} />
+              <Carousel setModalData={setModalData} count={3} data={products} />
             </div>
           </div>
 

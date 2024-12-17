@@ -15,8 +15,8 @@ export default function ShoppingCart() {
   useEffect(()=>{
     let total = 0;
     (cart||[])?.map(i=>{total+=i.price;})
-    setTotal(()=>(parseFloat(total)+(parseFloat(total)*tax)).toPrecision(3));
-  },[cart]);
+    setTotal(()=>(parseFloat(total)+(parseFloat(total)*tax)).toFixed(2));
+  },[cart, tax]);
 
   return (
     <>
@@ -24,21 +24,36 @@ export default function ShoppingCart() {
       <div className={styles.container}>
         <div className={styles.row}>
           <div className={styles.items}>
-            {(cart || [{ name: "Your Shopping Cart is Empty" }])?.map((i) => (
-              <div className={styles.item} key={Math.random()}>
-                <img
-                  className={styles.Image}
-                  src={"https://picsum.photos/seed/" + i.name + "/200/200.jpg"}
-                  alt={i.name}
-                  draggable="false"
-                />
-                <h1 className={styles.text}>{i.name}</h1>
-                <h1 className={styles.text}>
-                  {i.price ? "$" : ""}
-                  {i?.price}
-                </h1>
-              </div>
-            ))}
+            {((cart?cart.length:0) !== 0 ? cart : [{ name: "Your Cart is empty" }]).map(
+              (i) => (
+                <div className={styles.item} key={Math.random()}>
+                  <img
+                    className={styles.Image}
+                    src={"https://picsum.photos/seed/" + i.name + "/200/200.jpg"}
+                    alt={i.name}
+                    draggable="false"
+                  />
+                  <h1 className={styles.text}>{i.name}</h1>
+                  <h1 className={styles.text}>
+                    {i.price ? "$" : ""}
+                    {i?.price}
+                  </h1>
+                  {i.price ? (
+                    <button
+                      className={styles.closeBtn}
+                      onClick={() => {
+                        let Index = cart.indexOf(i);
+                        if (Index != -1) {
+                          let cart = JSON.parse(localStorage.getItem("cart"));
+                          cart.splice(Index, 1);
+                          localStorage.setItem("cart", JSON.stringify(cart));
+                          setCart(cart);
+                        }
+                      }}>✖</button>):(<></>
+                  )}
+                </div>
+              )
+            )}
           </div>
           <div className={styles.items}>
             <h1>Checkout</h1>
@@ -46,10 +61,11 @@ export default function ShoppingCart() {
               return (
                 <div className={styles.listing} key={Math.random()}>
                   <h1 className={styles.text}>{i.name}</h1>
-                  <h1 className={styles.text}>
-                    {i.price ? "$" : ""}
-                    {i?.price}
-                  </h1>
+                  {i.price ? (
+                    <h1 className={styles.text}>${i?.price}</h1>
+                  ) : (
+                    <></>
+                  )}
                 </div>
               );
             })}
@@ -69,6 +85,7 @@ export default function ShoppingCart() {
             ) : (
               <></>
             )}
+            <button onClick={() => { localStorage.cart = '[]'; setCart([]); }}>Checkout</button>
           </div>
         </div>
       </div>
