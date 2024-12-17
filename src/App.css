@@ -22,3 +22,8 @@ body {
 .main {
   flex: 1;
 }
+
+button:active {
+  transition: all 0.05s ease-in-out;
+  background-color: #508aa5;
+}
