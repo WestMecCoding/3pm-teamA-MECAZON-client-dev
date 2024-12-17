@@ -70,6 +70,10 @@
     font-size: 3rem;
     /* min-height: 5rem; */
 }
+.btn:hover {
+    font-size: 3.5rem;
+    color: #F78E11;
+}
 
 .addToCartBtn {
     border: none;
@@ -78,4 +82,14 @@
     padding: 0.3rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+}
+
+@keyframes grow {
+  from {
+    transform: scale(100%);
+  }
+
+  to {
+    transform: scale(150%);
+  }
 }

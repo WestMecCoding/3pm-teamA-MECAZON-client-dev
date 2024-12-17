@@ -69,6 +69,9 @@
     margin-bottom: 0.2rem;
     cursor: pointer;
 }
+.addCartButton:hover {
+    filter: brightness(95%);
+}
 
 .quantitySelector {
     outline: 1px solid black;

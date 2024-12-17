@@ -3,7 +3,7 @@ import styles from "../styles/Home.module.css";
 import Carousel from "../components/Carousel";
 import axios from "axios";
 
-export default function Home({setModalData}) {
+export default function Home({ setModalData }) {
   // const api = axios.create({
   //   baseurl: import.meta.env.VITE_API_URI_DEV
   // });
@@ -52,11 +52,13 @@ export default function Home({setModalData}) {
           <h1 className={styles.title}>Mecazon TitanX Pro 9000 Deluxe 2.0</h1>
           <p className={styles.text}>
             Experience cutting-edge technology with the Mecazon TitanX Pro 9000
-            Deluxe 2.0, designed with a Radeon RTX 4090 TI, 256gb DDR5 RAM, Intel Core I9 12th Generation CPU, 10000 watt power bank.
-            Crafted with precision and love, the TitanX
-            Pro delivers unmatched speed, performance, and reliability to power
-            your ambitions.
+            Deluxe 2.0, designed with a Radeon RTX 4090 TI, 256gb DDR5 RAM,
+            Ryzen Core I9 12th Generation CPU, 10000 watt power bank, 16
+            terabytes NVME 3.0 storage, and water-cooled. Crafted with precision
+            and love, the TitanX Pro delivers unmatched speed, performance, and
+            reliability. Your Roblox experience.
           </p>
+          <p className={styles.text2}>*May blow up</p>
         </div>
       </div>
     </>
