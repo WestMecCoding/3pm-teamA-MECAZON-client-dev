@@ -1,10 +1,66 @@
 .nav {
-  background-color: #333;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F78E11;
   padding: 1rem;
 }
 
+.col {
+  /* outline: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  width: 33%;
+}
+
 .nav a {
-  color: #fff;
-  margin-right: 1rem;
+  color: black;
   text-decoration: none;
 }
+
+.brand {
+  justify-content: start;
+}
+
+.userButtons {
+  justify-content: end;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.logoWrapper p {
+  color: white !important;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.logo {
+  margin-right: 0.5rem;
+  border-radius: 0.3rem;
+}
+
+.loginLink {
+  /* width: 50%; */
+  /* outline: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 3rem;
+}
+
+.loginLink p {
+  color: #0e3249;
+  margin-right: 0.3rem;
+}
+
+.cartLink {
+  /* width: 50%; */
+  display: flex;
+  justify-content: center;
+}
+

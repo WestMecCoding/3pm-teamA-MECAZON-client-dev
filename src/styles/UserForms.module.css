@@ -1,0 +1,52 @@
+
+.Form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 10vh;
+    padding-bottom: 20vh;
+    gap: 2rem;
+}
+
+.Brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: bolder;
+    color: #f78e11;
+    text-shadow: 0.25rem 0.25rem 1rem rgba(0,0,0,0.25);
+}
+
+.Logo {
+    width: 5rem;
+    margin-right: 0.5rem;
+    border-radius: 0.3rem;
+}
+
+.Input {
+    border: 0.1rem solid black;
+    border-radius: 0.3rem;
+    padding: 0.35rem;
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+    width: 17rem;
+    font-size: 1rem;
+}
+
+.Header {
+    font-size: 3rem;
+}
+
+.Label {
+    font-size: 1.5rem;
+}
+
+.RegisterText {
+    margin-top: 2.5rem;
+}
+
+.LoginText {
+    margin-top: 2.5rem;
+}
