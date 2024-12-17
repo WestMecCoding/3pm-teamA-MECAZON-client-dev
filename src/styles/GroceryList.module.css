@@ -42,11 +42,30 @@
   filter: brightness(95%);
 }
 
-.btn:active {
+.btn:focus {
   transition: all 0.05s ease-in-out;
-  background-color: #508aa5;
+  animation: swing 0.5s ease-in-out 1;
+
 }
 
 .Image {
   cursor: pointer;
+}
+
+@keyframes swing {
+  0%{
+    transform: rotate(0deg);
+    background-color: #508aa5;
+  }
+  25%{
+    transform: rotate(2.5deg)
+  }
+  75%{
+    transform: rotate(-2.5deg)
+  }
+  100%{
+    transform: rotate(0deg);
+    background-color: #508aa5;
+  }
+  
 }

@@ -84,12 +84,3 @@
     padding-right: 0.5rem;
 }
 
-@keyframes grow {
-  from {
-    transform: scale(100%);
-  }
-
-  to {
-    transform: scale(150%);
-  }
-}
