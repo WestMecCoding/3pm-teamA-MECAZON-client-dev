@@ -1,0 +1,97 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.row {
+    /* transition: all 1s ease-in-out; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 5vw;
+    max-width: 50rem;
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+.items {
+    display: flex;
+    gap: 0.5vw;
+    flex-direction: column;
+    align-items: center;
+    outline: 0.15rem solid #508aa5;
+    border-radius: 1vw;
+    font-size: 1vw;
+    width: 100%;
+    max-height: 50vh;
+    overflow-y: auto;
+}
+
+.item {
+    position: relative;
+    padding: 1.5vw;
+    padding-left: 1.5vw;
+    padding-right: 1vw;
+    box-sizing: border-box;
+    display: flex;
+    background-color: white;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 1.5vw;
+    align-items: center;
+    width: 100%;
+}
+
+.Image {
+    width: calc(100%/4);
+    object-fit: contain;
+    border-radius: 0.5rem;
+}
+
+.text {
+    max-width: calc(100%/4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1vw;
+    margin: 0px;
+}
+
+.listing {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.closeBtn {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 0.5rem;
+    top: 0.5vw;
+    font-size: 75%;
+    font-weight: bolder;
+    margin: 0px;
+    width: 1.25vw;
+    height: 1.25vw;
+    padding: 0px;
+    text-align: center;
+    background-color: lightgray;
+    border-radius: 100%;
+    border: none;
+    color: white;
+}
+
+.closeBtn:hover {
+    background-color: red;
+}
+
+.closeBtn:active {
+    outline: 0.1rem solid red;
+    font-size: 100%;
+}

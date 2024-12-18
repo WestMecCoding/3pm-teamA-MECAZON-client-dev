@@ -24,12 +24,16 @@
 }
 
 .title {
-    font-size: 4vw;
+    font-size: 1.8vw;
     text-align: center;
     margin: 0px;
 }
 
 .text {
-    font-size: 1.5vw;
+    font-size: 1.3vw;
+    margin: 0px;
+}
+.text2 {
+    font-size: 0.8vw;
     margin: 0px;
 }

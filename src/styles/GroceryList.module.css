@@ -30,9 +30,42 @@
 }
 
 .btn {
+  /* transition: all 1s ease-in-out; */
   border: none;
   cursor: pointer;
   background-color: #F78E11;
   font-size: 100%;
   padding: 0.75rem;
+}
+
+.btn:hover{
+  filter: brightness(95%);
+}
+
+.btn:focus {
+  transition: all 0.05s ease-in-out;
+  animation: swing 0.5s ease-in-out 1;
+
+}
+
+.Image {
+  cursor: pointer;
+}
+
+@keyframes swing {
+  0%{
+    transform: rotate(0deg);
+    background-color: #508aa5;
+  }
+  25%{
+    transform: rotate(2.5deg)
+  }
+  75%{
+    transform: rotate(-2.5deg)
+  }
+  100%{
+    transform: rotate(0deg);
+    background-color: #508aa5;
+  }
+  
 }

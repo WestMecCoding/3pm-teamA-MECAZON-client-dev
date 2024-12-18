@@ -48,6 +48,10 @@
     justify-content: space-evenly;
 }
 
+.row a:hover{
+    color: #F78E11;
+}
+
 .column {
     text-align: center;
     display: flex;

@@ -22,7 +22,7 @@ export default function Navbar({setSearchValue}) {
           <img src="/account_icon.svg" height="30px" width="30px" alt="user account icon" />
         </Link>
 
-        <Link className={styles.cartLink} to="/cart">
+        <Link className={styles.cartLink} to="/shopping-cart">
           <img src="/cart_icon.svg" alt="shopping cart icon" height="50px" width="50px" />
         </Link>
       </div>
